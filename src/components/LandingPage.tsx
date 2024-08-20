@@ -15,12 +15,7 @@ import FAQ from './FAQ';
 import Footer from './Footer';
 import getLPTheme from './ui/getLPTheme';
 import HeroText from './HeroText';
-
-interface ToggleCustomThemeProps {
-    showCustomTheme: Boolean;
-    toggleCustomTheme: () => void;
-}
-
+import Image from "next/image";
 
 export default function LandingPage() {
     const [mode, setMode] = React.useState<PaletteMode>('light');
@@ -36,9 +31,18 @@ export default function LandingPage() {
         <ThemeProvider theme={showCustomTheme ? LPtheme : defaultTheme}>
             <CssBaseline />
             <AppAppBar mode={mode} toggleColorMode={toggleColorMode} />
-            <div className="flex flex-col items-center justify-center min-h-screen mt-10">
-                <HeroText />
-            </div>            <Box sx={{ bgcolor: 'background.default' }}>
+            <Box sx={{ bgcolor: 'background.default', position: 'relative', height: '100vh' }}>
+                <div className="relative w-full h-full">
+                    <Image
+                        src="/images/hero.gif"
+                        className="object-cover w-full h-full"
+                        layout="fill"
+                        alt="Hero GIF"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        <HeroText />
+                    </div>
+                </div>
                 <Features />
                 <Testimonials />
                 <Divider />
