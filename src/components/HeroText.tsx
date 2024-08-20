@@ -1,5 +1,7 @@
 "use client";
 import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
+import Image from "next/image";
+
 export default function Herotext() {
     const words = [
         {
@@ -21,6 +23,13 @@ export default function Herotext() {
     ];
     return (
         <div className="flex flex-col items-center justify-center h-[40rem]  ">
+            <Image
+                src="/images/logo.png"
+                className="rounded-full"
+                width={200}
+                height={200}
+                alt="Avatar"
+            />
             <p className="text-neutral-600 dark:text-neutral-200 text-xs sm:text-base  ">
                 The road to fairness starts from here
             </p>
